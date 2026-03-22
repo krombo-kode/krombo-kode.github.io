@@ -6,5 +6,5 @@ layout: default
 ---
 
 <div style="text-align: center;">
-  <img src="/assets/images/miku-point.webp" alt="Miku pointing">
+  <img src="/assets/images/miku-dancing.gif" alt="Miku Dancing">
 </div>
