@@ -62,3 +62,38 @@ CS-370 expanded that perspective to emerging technologies, particularly the inte
 The client situation described in the stakeholder communication section is equally a security example, and it was the foundation from these two courses that allowed me to recognize it as such.
 In SCADA, security is not an abstract concern, as a vulnerability in an industrial control system can mean environmental releases, equipment destruction, or threats to human safety, and that reality has shaped how I evaluate every system I design or assess.
 
+
+## Artifact Summary
+
+The artifacts in this portfolio are derived from a single system that was enhanced iteratively across three capstone milestones, with each enhancement building on the previous one.
+The decision to use one artifact across all three enhancements was intentional: rather than presenting disconnected projects that each demonstrate a skill in isolation, I wanted to show a phased approach to architectural revision and functionality expansion.
+This more closely represents the way systems actually evolve in production environments, as the reality of such projects is that they hardly ever take place in ideal conditions and often involve considerations for maintaining live system uptime in conjunction with the implementation of the project.
+The portfolio demonstrates how a monolithic application grew into a distributed, multi-tenant, integrity-validated platform through deliberate, additive design decisions.
+
+### Software Engineering and Design
+
+The original application was a monolithic Dash application built during my CS-340 course.
+For this enhancement, I decomposed it into a module-based design with clear service boundaries and restructured the deployment from a single machine to a multi-node architecture with services partitioned across independent compute instances.
+Security was addressed by design through Nginx for rate limiting, dash-auth for authentication, and Redis to short-circuit attempted IO spiking of MongoDB by caching frequently executed queries.
+The deployment target was Oracle Cloud's free tier, which introduced its own set of challenges: missing iptables entries in Canonical's Ubuntu Minimal images, absent troubleshooting tools in the minimal OS, and the platform's behavior of spinning down inactive VMs to reclaim resources.
+The largest takeaway from this enhancement was the importance of communication between entities in a distributed system and having the diagnostic tooling available to troubleshoot when that communication breaks down.
+
+### Data Structures and Algorithms
+
+The second enhancement focused on the implementation of a Merkle tree data structure and comparison engine for data integrity validation.
+The choice of a Merkle tree was not arbitrary or academic: it was informed by several months of independent research I had been conducting on the topic for a real-world distributed systems project in my professional work.
+The capstone gave me an environment to implement and demonstrate the concept independently of that project.
+This is one of the clearest examples in the portfolio of the feedback loop between my education and career as research I was doing professionally drove the design of an academic artifact, and the implementation work I did academically deepened my understanding of how the structure would perform in production.
+The enhancement also includes a demonstration dashboard that provides a visual walkthrough of the validation process, and the security implications are worth noting: an air-gapped known-good copy of a production database's Merkle tree enables efficient detection of unauthorized data manipulation, similar in concept to MD5 file integrity checks but applied at a much finer resolution to data at rest.
+
+### Databases
+
+The third enhancement added a REST API with multi-tenant MongoDB support.
+Each external organization that submits data is isolated to its own database within the MongoDB instance, with API keys mapped to each tenant to enforce that separation.
+This enhancement is also where some of the more satisfying debugging happened: the API demo was rejecting valid API keys, and after significant troubleshooting I discovered that BasicAuth was rejecting the request before it ever reached the API key validator, a sequencing issue that was invisible until I traced the request lifecycle through each layer.
+I also addressed the Oracle Cloud free-tier VM spin-down problem by adding a system health API endpoint and configuring a cron job on the database VM to hit that endpoint every five minutes, which routes through Nginx and keeps all three VMs active. A little brute-force-y, but effective.
+
+### Summary
+
+Together, these three artifacts trace the evolution of a system from a single-machine monolith to a distributed, secured, integrity-validated, multi-tenant platform.
+Each enhancement layered new capability onto the previous one, and each required solving problems that don't show up in a textbook but define what it actually means to build and operate distributed systems.
