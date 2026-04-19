@@ -23,14 +23,14 @@ My professional work in SCADA is, at its core, designing systems where dozens or
 My academic work gave me the formal grounding behind why those systems work the way they do and where they break: how you maintain data integrity across distributed state, how you decompose a system into manageable services, how you handle throughput when everything is competing for the same bandwidth, and what happens from a security perspective when all of those components are networked together.
 This is the direction my career is pointed, and the artifacts and experiences described in this portfolio reflect that focus.
 
-## Collaborating in a Team Environment
+### Collaborating in a Team Environment
 
 My coursework in software reverse engineering provided an unexpected but foundational perspective on collaboration.
 The core exercise of decompiling compiled programs to their assembly-level instructions, reconstructing the original logic, and assessing it for vulnerabilities is fundamentally an exercise in reading and reasoning about another person's work, understanding their intent from their implementation and identifying what they missed.
 This is a skill that extends well beyond the academic exercise: in my professional role as a SCADA architect, I routinely inherit systems designed and configured by other engineers, and my ability to trace decisions through an unfamiliar implementation, assess their soundness, and build on or correct them is central to the work.
 Collaboration in this context is not limited to co-authoring code on a shared repository: it is the ability to engage productively with work you did not create, in systems you did not design, alongside people whose assumptions you need to reconstruct before you can contribute meaningfully.
 
-## Communicating with Stakeholders
+### Communicating with Stakeholders
 
 System Analysis and Design was one of the courses that most directly mirrored my professional responsibilities.
 The discipline of eliciting requirements from stakeholders, modeling system behavior, and translating between business needs and technical specifications is effectively what I do every day as a SCADA architect.
@@ -38,7 +38,7 @@ Clients describe operational problems in their own terms, and my role is to anal
 One professional example that illustrates this clearly: I identified a situation where a prospective client's engineering team was using an AI model to compute process setpoints and push them directly to field controllers with no formal development lifecycle, no CVE tracking, and no awareness of IEC 62443 compliance requirements.
 Recognizing both the technical risk and my company's potential third-party liability, I had to communicate that concern through the appropriate channel and frame it in terms of business exposure rather than purely technical deficiency.
 
-## Data Structures and Algorithms
+### Data Structures and Algorithms
 
 The Data Structures and Algorithms course gave me the formal analytical framework for decisions I had previously been making on intuition and platform familiarity.
 Complexity analysis, tree traversals, hash structures, and queue implementations became tools I could reason about rather than just use.
@@ -46,7 +46,7 @@ This foundation directly informed the design decisions in my capstone project, w
 Both were deliberate structural choices made with an understanding of their computational tradeoffs, not defaults inherited from a framework.
 In my professional work, these concepts surface constantly: SCADA systems are fundamentally data flow problems, and every decision about polling intervals, historian storage, or alarm priority handling is a data structures question whether it gets called one or not.
 
-## Software Engineering and Database
+### Software Engineering and Database
 
 CS-250 and DAD-220 covered the two disciplines that most directly map to my capstone work.
 CS-250 introduced the formal structure of the software development lifecycle, from requirements gathering through iterative development and testing.
@@ -55,7 +55,7 @@ In the capstone, the two combined in how I took a monolithic Dash application an
 The existing stack included MongoDB as its persistence layer, and my enhancements built on top of that foundation, adding Nginx as a reverse proxy and Redis for caching and spooler migration, layering infrastructure around the database rather than replacing it.
 Professionally, this mirrors how I operate daily, as I am rarely writing code in isolation: I am scoping solutions, designing system architectures, selecting platforms, and in many cases handing off implementation details to other engineers while retaining ownership of the design.
 
-## Security
+### Security
 
 CS-405 provided the technical foundation for secure coding practices: input validation, buffer overflow prevention, encryption implementation, and the discipline of treating security as a design constraint rather than an afterthought.
 CS-370 expanded that perspective to emerging technologies, particularly the integration of AI and machine learning into systems where the consequences of failure are not limited to data loss or downtime.
