@@ -3,6 +3,7 @@
 # To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 
 layout: default
+title: Patrick Klose
 ---
 
 # Professional Self-Assessment
@@ -60,3 +61,4 @@ CS-405 provided the technical foundation for secure coding practices: input vali
 CS-370 expanded that perspective to emerging technologies, particularly the integration of AI and machine learning into systems where the consequences of failure are not limited to data loss or downtime.
 The client situation described in the stakeholder communication section is equally a security example, and it was the foundation from these two courses that allowed me to recognize it as such.
 In SCADA, security is not an abstract concern, as a vulnerability in an industrial control system can mean environmental releases, equipment destruction, or threats to human safety, and that reality has shaped how I evaluate every system I design or assess.
+
