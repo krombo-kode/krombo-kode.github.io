@@ -97,3 +97,5 @@ I also addressed the Oracle Cloud free-tier VM spin-down problem by adding a sys
 
 Together, these three artifacts trace the evolution of a system from a single-machine monolith to a distributed, secured, integrity-validated, multi-tenant platform.
 Each enhancement layered new capability onto the previous one, and each required solving problems that don't show up in a textbook but define what it actually means to build and operate distributed systems.
+
+The source code for the enhancements can be found by clicking the "View On GitHub" button on the banner, and the default username and password for the dashboard are "guest" and "password".
